@@ -1,0 +1,22 @@
+http requests
+
+radnik:
+
+1. preostali dani godisnjeg odmora
+2. broj prekovremenih sati (odobreni / neodobreni)
+3. drzavni praznici i neradni dani
+4. svi njegovi zahtevi, sve informacije
+5. slanje zahteva (razne vrste) 
+
+menadzer:
+
+1. zahtevi koje su njemu radnici uputili
+2. slanje odgovora na zahteve koje su mu uputili
+3. postavljanje nadleznog ako ode na odmor
+
+admin:
+
+1. unosi radnike, ime, prezime, username, password, vrsta zaposlenja
+2. unosi praznike i neradne dane
+3. ima pregled svih zahteva
+4. pregled ko je kad dosao, poceo da radi, zavrsio rad, otisao sa posla

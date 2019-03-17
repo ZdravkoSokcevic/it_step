@@ -1,0 +1,26 @@
+Heej paja,
+ovako:
+imas WorkerController koji ti vraca sve radnike,sve moguce 
+gadjas http:8000/controller/WorkerController.php
+ja sam radio nesto i sa bazom tako da ti saljem opet bazu,imas i delete metodu,update takodje,
+upload photo, sto se tice uploada slike,potrebno je da gadjas controller/uploadPhoto
+ocekujem od tebe objekat koji ima .id i .slika ako moze tako,nisam siguran da ce to raditi dok ne sjednemo zajedno ti ipak probaj`
+
+
+-------------------------------------------------------------------------------
+file: localhost:8000/controller/routing.php
+
+nastavak na url:
+table:ime_tabele
+action:ime_akcije
+
+za workers
+base_url?table=workers&action=all
+vraca sve radnike
+
+base_url?table=workers&action=getOne?id=trazeni_id
+vraca radnika sa id-jem
+
+za manager
+base_url?table=manager&action=getWorkers
+vraca sve managere

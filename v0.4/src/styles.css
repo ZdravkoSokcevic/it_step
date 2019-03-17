@@ -1,0 +1,222 @@
+.blue {
+    color: dodgerblue!important;
+}
+
+.red {
+    color: crimson!important;
+}
+
+.error {
+    color: crimson;
+    font-size: 0.8em;
+}
+/* Buttons */
+
+.full {
+    background-color: dodgerblue!important;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 5px 15px;
+    font-size: 0.8em;
+}
+
+.full:disabled {
+    background-color: lightgray!important;
+    color: gray;
+}
+
+.flat {
+    background: none;
+    border: none;
+    font-weight: 700;
+    padding: 5px 15px;
+    font-size: 0.9em;
+    letter-spacing: inherit;
+}
+
+.flat:disabled {
+    color: lightgray
+}
+
+.icon {
+    background: none;
+    border: none;
+    color: dodgerblue;
+}
+
+/* Inputs */
+
+input {
+    width: 120px;
+    padding: 5px;
+    border: solid 1pt dodgerblue;
+}
+
+/* input[type='time']{
+    width: 100px;
+    padding: 5px;
+    border: solid 1pt dodgerblue;
+} */
+
+input[type='time']:invalid{
+    border: solid 1pt dodgerblue;
+}
+
+input:invalid {
+    border: solid 1pt crimson;
+    box-shadow: none;
+}
+
+textarea {
+    height: 150px;
+    width: 90%;
+    padding: 5px;
+    border: solid 1pt dodgerblue;
+}
+
+select {
+    width: 132px;
+    background: none;
+    padding: 4px;
+    border: solid 1pt dodgerblue;
+}
+
+/* Calendar */
+
+.calendar table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.calendar th {
+    font-weight: 700;
+    font-size: 0.8em;
+}
+
+.calendar th button {
+    background: none;
+    border: none;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.calendar td {
+    width: 50px;
+    height: 50px;
+}
+
+.calendar td button:not(.full) {
+    border: none;
+    background: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-weight: 700;
+    opacity: 0.75;
+}
+
+.calendar .current {
+    color: dodgerblue;
+    border: solid 1pt dodgerblue!important;
+}
+
+.calendar .weekend {
+    color: crimson;
+}
+
+.calendar .selected {
+    background-color: lightgray!important;
+    opacity: 1;
+}
+
+/* Header */
+
+.header {
+    padding: 0 15px;
+}
+
+/* Login */
+
+.login {
+    margin-top: 100px;
+}
+
+.login input {
+    width: 200px!important;
+}
+
+/* Employees */
+
+.employees table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.employees th {
+    padding: 10px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: dodgerblue;
+    border-bottom: solid 1pt gray;
+}
+
+.employees td {
+    padding: 10px;
+    border-bottom: solid 1pt dodgerblue;
+}
+
+.employees th input, .employees th select {
+    width: 100%;
+}
+
+/* Dialogs */
+
+.employee-new img {
+    width: 100px;
+    height: 100px;
+}
+
+.employee-view td{
+    padding: 8px;
+}
+
+/* InputImage */
+
+.input-image label div{
+    position: relative;
+    display: inline-block;
+}
+
+.input-image img {
+    width: auto;
+    border: solid 1pt dodgerblue;
+}
+
+.input-image button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+/* Info Box */
+
+.info-box {
+    margin-top: 15px;
+}
+
+.info-box button {
+    width: 100%;
+    border: solid 1pt dodgerblue;
+    background: none;
+    min-height: 6em;
+    word-wrap: break-word;
+}
+
+.info-box button span {
+    font-weight: 700;
+}

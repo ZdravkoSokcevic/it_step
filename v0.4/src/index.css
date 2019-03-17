@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 15px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: monospace;
+}
+
+button:hover, label:hover, a:hover,select:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+button:disabled:hover {
+  opacity: 0.75;
+  cursor: default;
+}
+
+ul {
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+table {
+  max-width: 100%;
+}
+
+input, textarea, select, button, label, a {
+  opacity: 0.75;
+}
+
+input:focus, textarea:focus, select:focus, input:hover {
+  opacity: 1;
+}
+
+a {
+  text-decoration: none; 
+  font: menu;
+  display: inline-block;
+  letter-spacing: inherit;
+  color: black;
+}
+
+a:visited {
+  color: inherit;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+hr {
+  opacity: 0.5;
+}
+
+
