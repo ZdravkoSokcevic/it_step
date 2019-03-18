@@ -1,7 +1,7 @@
 <?php
 
 //require_once '../helpers/autoload.php';
-
+session_start();
 require_once '../models/manager.php';
 require_once '../models/request.php';
 
@@ -23,17 +23,28 @@ $action=$_GET['action'];
 
 // echo json_encode($table);
 // echo json_encode($action);
+
+#files which arrive with htpp request
+$files=json_decode(file_get_contents("php://input"));
+
+// echo json_encode($files);
+// die();
+
+if(!is_null(file_get_contents("php://input")))
+{
+    $_SESSION['data']=$files;
+}
 switch($table)
 {
     case 'workers':
     {
         switch($action)
         {
-            case 'insert': {require "worker/insert.php";}break;
+            case 'insert': {header("Location: worker/insert.php");}break;
             case 'all': require 'WorkerController.php';break;
             case 'getOne':
             {
-                header("Location: worker/find?id=$_GET['id']");
+                header("Location: worker/find?id=".$_GET['id']);
             };break;
             case 'delete':
             {
@@ -42,6 +53,10 @@ switch($table)
                 if($success)
                     echo json_encode(true);
                 else echo json_encode(false);
+            };break;
+            case 'update':
+            {
+                header("Location: worker/update.php");
             };break;
         }
     };break;

@@ -124,8 +124,10 @@
         {
             $table=static::$table;
             $id=$arrData['id'];
+
             // var_dump($id);
             // die();
+
             unset($arrData['id']);
             $updArray=[];
 
@@ -139,6 +141,9 @@
             $upd=implode(',',$updArray);
 
             $query="UPDATE {$table} SET {$upd} WHERE id=$id";
+
+            // var_dump($query);
+            // die();
 
             $success=static::runNonSelectedQuery($query);
             

@@ -17,14 +17,15 @@ header('Content-Type: application/x-www-form-urlencoded');
 #       127.0.0.1/controller/login.php       #
 ##############################################
 
-$auth=json_decode(file_get_contents("php://input"),false);
-
+$auth=json_decode(file_get_contents("php://input"));
+echo json_encode($auth);
 if(isset($auth->username)&&
     isset($auth->password))
     {
         $user=$auth->username;
         $pass=$auth->password;
         $success=Auth::matchLogin($user,$pass);
+       
         if($success)
         {
             $worker=Work::findById($success);

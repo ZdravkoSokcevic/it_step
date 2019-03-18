@@ -19,7 +19,7 @@
 
     
     $worker=json_decode(file_get_contents("php://input"));
-    echo json_encode(file_get_contents("php://input"));
+    //echo json_encode(file_get_contents("php://input"));
     if(isset($worker->picture))
     {
         $arr=$worker->picture;
