@@ -24,3 +24,32 @@ vraca radnika sa id-jem
 za manager
 base_url?table=manager&action=getWorkers
 vraca sve managere
+
+
+
+
+za insert:
+base_url?table=workers&action=insert
+Saljes objekat koji ima property-e
+
+objekt.firstname,
+objekt.lastname,
+objekt.type ---> admin,manager,worker
+objekt.manager --->id od manager-a
+objekt.username,
+objekt.email,
+objekt.password,
+objekt.picture
+
+
+-----------------------------------------------------------------------------
+
+za promjenu sifre:
+base_url?table=workers&action=chpsswd
+saljes objekat koji sadrzi:
+objekt.username,
+objekt.password,
+objekt.newPassword
+
+
+

@@ -58,6 +58,10 @@ switch($table)
             {
                 header("Location: worker/update.php");
             };break;
+            case 'chpsswd':
+            {
+                header("Location: ")
+            }
         }
     };break;
     //---------------------------------------------------------------------

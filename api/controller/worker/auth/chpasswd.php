@@ -9,8 +9,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 header('Content-Type: application/x-www-form-urlencoded');
 
-$updData=json_decode(file_get_contents("php://input"));
-
+$updData=$_SESSION['data'];
 if(isset($updData))
 {
     $success=Auth::matchLogin($updData->username,$updData->password);
@@ -26,6 +25,7 @@ if(isset($updData))
     echo json_encode("Doslo je do greske, pokusajte ponovo");
     http_response_code(404);
 }
+
 
 ?>
 
