@@ -5,7 +5,16 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "redux":"*",
+    "react-redux":"*",
+    "redux-saga":"*",
+    "react-flexbox-grid":"*",
+    "@material-ui/core":"*",
+    "@material-ui/icons":"*",
+    "react-calendar":"*",
+    "formik":"*",
+    "styled-components":"*"
   },
   "scripts": {
     "start": "react-scripts start",
