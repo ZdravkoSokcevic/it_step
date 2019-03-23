@@ -5,8 +5,9 @@ import { SET_LOGGED, LOGIN } from '../actions/types';
 
 function* login(action) {
     console.log('saga')
-    function* thenFunction (json) {
-        yield put({
+    const thenFunction = json => {
+        console.log(json)
+        put({
             type: SET_LOGGED,
             payload: json
         })
@@ -15,7 +16,10 @@ function* login(action) {
         'login.php',
         'post',
         action.payload,
-        thenFunction
+        function (json) {
+            console.log('json')
+            console.log(json)
+        }
     )
 }
 
