@@ -1,15 +1,25 @@
-export default function* apiCall(url, method, body, thenFunction) {
+export function postApi (url, body) {
     const baseUrl = 'http://localhost:8000/controller/';
-    console.log('fetch')
-    yield fetch (
-        baseUrl+url, {
-            method: method,
-            body: JSON.stringify(body)
-        }
-    )
+    fetch (baseUrl+url, {
+        method: 'post',
+        body: JSON.stringify(body)
+    })
+    .then(res => {
+        return res.json()
+    })
+    .then(json => {
+        return json
+    })
+}
+
+export function getApi (url, thenFunction, catchFunction) {
+    const baseUrl = 'http://localhost:8000/controller/';
+    fetch(baseUrl+url, {
+        method: 'get'
+    })
     .then(function(res) {
         return res.json()
     })
     .then(thenFunction)
-    .catch(console.log('catch'))
+    .then(catchFunction)
 }

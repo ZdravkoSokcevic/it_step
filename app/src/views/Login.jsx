@@ -15,7 +15,6 @@ class Login extends Component {
                     password: ''
                 }}
                 onSubmit={values => {
-                    console.log(values)
                     this.props.login(values)
                 }}
             >
