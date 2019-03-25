@@ -4,44 +4,20 @@ import { postApi } from '../apiCommunication/index';
 
 
 function* login(action) {
-    console.log('usao u sagu')
-
-    function thenFunction (json) {
-        console.log(json)
-        put({
-            type: SET_LOGGED,
-            payload: {name: 'pera', email: 'peric'}
-        })
-    }
-
-    function catchFunction () {
-        console.log('usao u catch fun')
-    }
-
     try {
-        const user = yield call(
+        var data = yield call(
             postApi,
             'login.php',
             action.payload
         )
+        console.log(data)
         yield put ({
             type: SET_LOGGED,
-            payload: {name: 'pera', email: 'peric'}
+            payload: data
         })
     } catch (e) {
-        console.log('kurac')
+        console.log(e)
     }
-    
-
-    // postApi(
-    //     'login.php',
-    //     action.payload,
-    //     yield put(json => {
-    //         type: SET_LOGGED,
-    //         payload: json
-    //     }),
-    //     catchFunction
-    // )
 }
 
 function* mySaga() {

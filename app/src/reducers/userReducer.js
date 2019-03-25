@@ -8,7 +8,6 @@ export default function user (state = initialState, action) {
     switch(action.type) {
         default: return state;
         case SET_LOGGED: {
-            console.log('reducer')
             return {
             ...state,
             loggedUser: action.payload

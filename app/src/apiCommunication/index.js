@@ -1,25 +1,16 @@
-export function postApi (url, body) {
+export async function postApi (url, body) {
     const baseUrl = 'http://localhost:8000/controller/';
-    fetch (baseUrl+url, {
+    const response = await fetch (baseUrl+url, {
         method: 'post',
         body: JSON.stringify(body)
     })
-    .then(res => {
-        return res.json()
-    })
-    .then(json => {
-        return json
-    })
+    return await response.json()
 }
 
-export function getApi (url, thenFunction, catchFunction) {
+export async function getApi (url, thenFunction, catchFunction) {
     const baseUrl = 'http://localhost:8000/controller/';
-    fetch(baseUrl+url, {
+    const response = await fetch(baseUrl+url, {
         method: 'get'
     })
-    .then(function(res) {
-        return res.json()
-    })
-    .then(thenFunction)
-    .then(catchFunction)
+    return await response.json()
 }
