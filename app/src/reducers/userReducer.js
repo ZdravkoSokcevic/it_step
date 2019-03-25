@@ -1,7 +1,8 @@
-import {SET_LOGGED} from '../actions/types'
+import {SET_LOGGED, SET_ALL_WORKERS} from '../actions/types'
 
 const initialState = {
-    loggedUser: {}
+    loggedUser: {},
+    allWorkers: []
 }
 
 export default function user (state = initialState, action) {
@@ -11,6 +12,12 @@ export default function user (state = initialState, action) {
             return {
             ...state,
             loggedUser: action.payload
+            }
+        }
+        case SET_ALL_WORKERS: {
+            return {
+                ...state, 
+                allWorkers: action.payload
             }
         }
     }

@@ -9,25 +9,24 @@ class Login extends Component {
     render() {
         return (
             <React.Fragment>
-            <Formik
-                initialValues={{
-                    username: '',
-                    password: ''
-                }}
-                onSubmit={values => {
-                    this.props.login(values)
-                }}
-            >
-                <Form>
-                    <Title>IT Step</Title>
-                    <InputLabel>Korisničko ime</InputLabel>
-                    <Field type='text' name='username' />
-                    <InputLabel>Lozinka</InputLabel>
-                    <Field type='password' name='password' />
-                    <ButtonFull type='submit'>Prijavi se</ButtonFull>
-                </Form>
-            </Formik>
-                {JSON.stringify(this.props.loggedUser)}
+                <Formik
+                    initialValues={{
+                        username: '',
+                        password: ''
+                    }}
+                    onSubmit={values => {
+                        this.props.login(values)
+                    }}
+                >
+                    <Form>
+                        <Title>IT Step</Title> 
+                        <InputLabel>Korisničko ime</InputLabel> 
+                        <Field type='text' name='username' /> <br/>
+                        <InputLabel>Lozinka</InputLabel>
+                        <Field type='password' name='password' /> <br/>
+                        <ButtonFull type='submit'>Prijavi se</ButtonFull>
+                    </Form>
+                </Formik>
             </React.Fragment>
         )
     }
@@ -36,7 +35,7 @@ class Login extends Component {
 Login.propTypes = {
     loggedUser: PropTypes.object,
     login: PropTypes.func
-  };
+};
 
 const mapStateToProps = state => ({
     loggedUser: state.user.loggedUser

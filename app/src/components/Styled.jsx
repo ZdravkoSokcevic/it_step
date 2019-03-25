@@ -13,3 +13,9 @@ export const Textarea = styled.textarea ``
 export const Link = styled.a ``
 
 export const Title = styled.h3 ``
+
+export const Table = styled.table ``
+
+export const TableRow = styled.tr ``
+
+export const TableData = styled.td ``
