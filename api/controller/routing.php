@@ -41,7 +41,7 @@ switch($table)
         switch($action)
         {
             case 'insert': {header("Location: worker/insert.php");}break;
-            case 'all': require 'WorkerController.php';break;
+            case 'all': header("Location: worker/all.php");break;
             case 'getOne':
             {
                 header("Location: worker/find?id=".$_GET['id']);
@@ -60,20 +60,13 @@ switch($table)
             };break;
             case 'chpsswd':
             {
-                header("Location: ")
-            }
-        }
-    };break;
-    //---------------------------------------------------------------------
-    //---------------------------------------------------------------------
-    case 'manager':
-    {
-        switch($action)
-        {
-            case 'getWorkers':
+                die();
+                header("Location: ");
+            };break;
+            case 'getMyWorkers':
             {
                 $id=$_GET['id'];
-                if(Work::isManager($id))
+                if(isset($id))
                 {
                     $manager=Manager::getManager($id)->fetchAll(PDO::FETCH_OBJ);
                     echo json_encode($manager);
@@ -81,6 +74,32 @@ switch($table)
                     echo json_encode("radnik nije manager");
                 }
             };break;
+        }
+    };break;
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
+    case 'managers':
+    {
+        switch($action)
+        {
+            
+            case 'all':
+            {
+                $managers=Manager::getAll();
+                //echo json_encode($managers);
+                // var_dump($managers);
+        
+                // die();
+                if(is_array($managers))
+                {
+                    http_response_code(200);
+                    echo json_encode($managers);
+                }else{
+                    http_response_code(404);
+                }
+            }
+
+            
         }
     };break;
     //---------------------------------------------------------------------
@@ -97,6 +116,14 @@ switch($table)
                     echo json_encode(true);
                 else echo json_encode(false);
             };break;
+            case 'insert':
+            {
+                header("Location: request/insert.php");
+            };break;
+            case 'updDecision':
+            {
+                header("Location:request/updDecision.php");
+            };break;
         }
     }
     //---------------------------------------------------------------------
@@ -107,7 +134,7 @@ switch($table)
         {
             case 'insert':
             {
-                require_once 'calendar/insert.php';
+                header("Location: calendar/insert.php");
             };break;
             
             case 'update':

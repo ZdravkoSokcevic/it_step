@@ -9,8 +9,7 @@
             $table=static::$table;
 
             $query="INSERT INTO {$table} (request_id,number) VALUES ($requestId,$num);";
-            $queryData=static::runQuery($query);
-            return $queryData->fetch();
+            return static::runNonSelectedQuery($query);
         }
 
 

@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../models/worker.php';
+    require_once '../../models/worker.php';
     
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");

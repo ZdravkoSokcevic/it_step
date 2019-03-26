@@ -16,6 +16,6 @@
         echo json_encode($Managers);
     }else {
         http_response_code(404);
-        echo "Nije pronadjen niti jedan menager";
+        echo "Nije pronadjen niti jedan manager";
     }
 ?>

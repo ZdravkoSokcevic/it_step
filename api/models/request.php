@@ -16,8 +16,8 @@
         public static function insertRequest($type,$typeValue,$thirdPerson,$idWorker,$description,$picture,$reason,$time_go,$time_back,$country,$town)
         {
             $table=static::$table;
-            $now_date=date("Y/m/d h:m");
-
+            $now_date=date("Y/m/d h:i");
+            $quertData="nesto";
             $query="
                 INSERT INTO {$table} (  
                     send_date,
@@ -35,7 +35,9 @@
                         '$description'
                     );
             ";
-            $insertData=static::runQuery($query);
+            // echo json_encode($query);
+            // die();
+            $insertData=static::runNonSelectedQuery($query);
             
             // var_dump($insertData);
             // die();
@@ -46,17 +48,23 @@
 
             $workerId=static::findById($idRequest);
             $table1=$type;
-            switch($table1)
+            //var_dump($workerId);
+            if($insertData && is_object($workerId))
             {
-                case 'overwork': $queryData=Overwork::insertOverwork($idRequest,$typeValue,$reason);break;
-                case 'refund': $queryData=Refund::insertRefund($idRequest,$workerId->worker_id,$picture,$reason);break;
-                case 'errand': $queryData=Errand::insertErrand($idRequest,$workerId->worker_id,$time_go,$time_back,$country,$town);break;
-                case 'day_off':$queryData=DayOff::insertDayOff($idRequest,$typeValue);break;
-                case 'allowance': $queryData=Allowance::insertAllowance($idRequest,$typeValue);break;
-                default: break;
-            }   
-            var_dump($queryData);
-            die();
+                switch($table1)
+                {
+                    case 'overwork': $queryData=Overwork::insertOverwork($idRequest,$typeValue,$reason);break;
+                    case 'refund': $queryData=Refund::insertRefund($idRequest,$workerId->worker_id,$picture,$reason);break;
+                    case 'errand': $queryData=Errand::insertErrand($idRequest,$workerId->worker_id,$time_go,$time_back,$country,$town);break;
+                    case 'day_off':$queryData=DayOff::insertDayOff($idRequest,$typeValue);break;
+                    case 'allowance': $queryData=Allowance::insertAllowance($idRequest,$typeValue);break;
+                    default: break;
+                }   
+                return $queryData;
+            }else{
+                return false;
+            }
+            //die();
         }
 
         public static function updateDecision($id,$decision)

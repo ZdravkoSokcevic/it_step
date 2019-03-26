@@ -18,7 +18,7 @@ header('Content-Type: application/x-www-form-urlencoded');
 ##############################################
 
 $auth=json_decode(file_get_contents("php://input"));
-echo json_encode($auth);
+//echo json_encode($auth);
 if(isset($auth->username)&&
     isset($auth->password))
     {
@@ -30,10 +30,14 @@ if(isset($auth->username)&&
         {
             $worker=Work::findById($success);
             echo json_encode($worker);
+            http_response_code(200);
         }else{
             echo json_encode("Username or password doesn't match");
+            http_response_code(503);
         }
+    }{
+        http_response_code(404);
+        echo json_encode("Popunite sva polja");
     }
-    echo false;
 
 ?>

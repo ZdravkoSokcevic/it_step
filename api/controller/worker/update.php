@@ -47,7 +47,7 @@
                 http_response_code(200);
                 echo json_encode("Uspjesno ste sacuvali podatke");
             }else{
-                http_response_code(505);
+                http_response_code(422);
                 echo json_encode("Podaci nisu validni");
             }
         }else{

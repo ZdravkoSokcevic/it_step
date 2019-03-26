@@ -7,9 +7,9 @@
         {
             $table=static::$table;
             $query="INSERT INTO {$table} (request_id,price) VALUES ($reqId,$quantity);";
-            $queryData=static::runQuery($query);
-            var_dump($queryData);
-            die();
+            $queryData=static::runNonSelectedQuery($query);
+            // var_dump($queryData);
+            // die();
             return $queryData;
         }
     }

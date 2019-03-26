@@ -42,7 +42,10 @@
 
         protected static function runNonSelectedQuery($query)
         {
-            return static::runQuery($query)->fetch(PDO::FETCH_OBJ);
+            $success=static::runQuery($query);
+            if(is_object($success))
+                return true;
+            else return false;
         }
 
         #########################################
