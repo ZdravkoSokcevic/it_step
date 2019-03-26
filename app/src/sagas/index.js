@@ -1,44 +1,14 @@
-import {call, put, takeEvery} from 'redux-saga/effects'
-import { SET_LOGGED, LOGIN, SET_ALL_WORKERS, GET_ALL_WORKERS } from '../actions/types';
-import { postApi, routeGetApi } from '../apiCommunication/index';
+import {takeEvery} from 'redux-saga/effects'
+import {GET_LOGGED, GET_ALL_WORKERS, GET_ONE_WORKER, GET_ALL_MANAGERS} from '../actions/types';
+import {login, getAllWorkers, getOneWorker, getAllManagers} from './userSaga';
+import {} from './requestSaga';
 
-
-function* login(action) {
-    try {
-        var data = yield call(
-            postApi,
-            'login.php',
-            action.payload
-        )
-        console.log(data)
-        yield put ({
-            type: SET_LOGGED,
-            payload: data
-        })
-    } catch (e) {
-        console.log(e)
-    }
-}
-
-function* getAllWorkers() {
-    try {
-        var data = yield call(
-            routeGetApi,
-            '?table=workers&action=all'
-        )
-        console.log(data)
-        yield put ({
-            type: SET_ALL_WORKERS,
-            payload: data
-        })
-    } catch (e) {
-        console.log(e)
-    }
-}
 
 function* mySaga() {
-    yield takeEvery(LOGIN, login);
+    yield takeEvery(GET_LOGGED, login);
     yield takeEvery(GET_ALL_WORKERS, getAllWorkers);
+    yield takeEvery(GET_ONE_WORKER, getOneWorker);
+    yield takeEvery(GET_ALL_MANAGERS, getAllManagers)
 }
 
 export default mySaga;

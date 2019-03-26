@@ -8,7 +8,7 @@ export async function postApi (url, body) {
 }
 
 export async function routePostApi (url, body) {
-    const baseUrl = 'http://localhost:8000/controller/routing.php';
+    const baseUrl = 'http://localhost:8000/controller/routing.php?';
     const response = await fetch (baseUrl + url, {
         method: 'post',
         body: JSON.stringify(body)
@@ -16,16 +16,16 @@ export async function routePostApi (url, body) {
     return await response.json()
 }
 
-export async function routeGetApi (url) {
-    const baseUrl = 'http://localhost:8000/controller/routing.php';
+export async function getApi (url) {
+    const baseUrl = 'http://localhost:8000/controller/';
     const response = await fetch(baseUrl+url, {
-        method: 'post'
+        method: 'get'
     })
     return await response.json()
 }
 
-export async function getApi (url) {
-    const baseUrl = 'http://localhost:8000/controller/';
+export async function routeGetApi (url) {
+    const baseUrl = 'http://localhost:8000/controller/routing.php?';
     const response = await fetch(baseUrl+url, {
         method: 'get'
     })
