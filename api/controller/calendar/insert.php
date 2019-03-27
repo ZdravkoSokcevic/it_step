@@ -3,7 +3,7 @@
 // echo json_encode($dir);
 // die();
 
-require_once '../models/calendar.php';
+require_once '../../models/calendar.php';
 
 
 header("Access-Control-Allow-Origin: *");
@@ -27,7 +27,7 @@ if(
     echo json_encode($insertData);
     http_response_code(200);
 }else{
-    echo_json_encode("Podaci nisu validni");
+    echo json_encode("Podaci nisu validni");
     http_response_code(404);
 }
 

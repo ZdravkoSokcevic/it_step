@@ -2,6 +2,7 @@
 
     require_once 'entity.php';
     require_once 'worker.php';
+    require_once '../helpers/date.php';
 
     class Manager extends Work
     {
@@ -12,8 +13,8 @@
             $queryData=static::runQuery($query)->fetchAll(PDO::FETCH_OBJ);
             
             $reqArray=[];
-            // var_dump($queryData);
-            // die();
+//             var_dump($queryData);
+//             die();
             foreach($queryData as $worker_id)
             {
                 // var_dump($worker_id->id);
@@ -23,19 +24,44 @@
 
                 $requestData=static::runQuery($query)->fetchAll(PDO::FETCH_OBJ);
                 $reqArray[]=$requestData;
+
+                //var_dump($requestData);
+                //die();
+
                 foreach($requestData as $request)
                 {
+                    //var_dump($request);
                     //var_dump($request->type);
-                    
-                    switch($request->type)
+                    $time=time("Y:m:d H:i:s");
+                    $postRequestTime=$request->send_date;
+                    $difference=hour_calc($time,$postRequestTime);
+                    //var_dump((int)$difference);
+                    //die();
+                    if((int)$difference<24)
                     {
-                        case 'overwork': $queryData=Overwork::findByAttribute('request_id',$request->id);break;
-                        case 'refund': $queryData=Refund::findByAttribute('request_id',$request->id);break;
-                        case 'errand': $queryData=Errand::findByAttribute('request_id',$request->id);break;
-                        case 'day_off':$queryData=DayOff::findByAttribute('request_id',$request->id);break;
-                        case 'allowance': $queryData=Allowance::findByAttribute('request_id',$request->id);break;
+                        switch ($request->type) {
+                            case 'overwork':
+                                $queryData = Overwork::findByAttribute('request_id', $request->id);
+                                break;
+                            case 'refund':
+                                $queryData = Refund::findByAttribute('request_id', $request->id);
+                                break;
+                            case 'errand':
+                                $queryData = Errand::findByAttribute('request_id', $request->id);
+                                break;
+                            case 'day_off':
+                                $queryData = DayOff::findByAttribute('request_id', $request->id);
+                                break;
+                            case 'allowance':
+                                $queryData = Allowance::findByAttribute('request_id', $request->id);
+                                break;
+                        }
+                        var_dump($queryData->fetchAll(PDO::FETCH_OBJ));
+                    }else{
+                        $request->nonStaticUpdate([
+                            'decision'=>0
+                        ]);
                     }
-                    var_dump($queryData->fetchAll(PDO::FETCH_OBJ));
                 }
                 $reqArray[]=1;
             }

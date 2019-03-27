@@ -22,8 +22,11 @@ base_url?table=workers&action=getOne?id=trazeni_id
 vraca radnika sa id-jem
 
 za manager
-base_url?table=manager&action=getWorkers
+base_url?table=managers&action=all
 vraca sve managere
+
+base_url?table=workers&action=getMyWorkers
+vraca sve radnike kojima sam ja manager
 
 
 
@@ -50,6 +53,64 @@ saljes objekat koji sadrzi:
 objekt.username,
 objekt.password,
 objekt.newPassword
+
+
+-----------------------------------------------------
+
+
+zahtevi
+base_url?table=request&action=insert
+
+
+za slobodne dane:
+saljes objekt koji ima
+objekt.type=day_off,
+objekt.typeValue, -->koliko slobodnih dana
+objekt.idWorker, -->id radnika koji salje
+objekt.description -->razlog za slobodan dan
+
+--------------------------------------------
+
+za sluzbena putovanja
+
+objekt.type=errand,
+objekt.typeValue, -->koliko dana
+objekt.idWorker, -->id radnika
+objekt.desc, -->opis
+objekt.reason,	-->razlog sluzbenog putovanja
+objekt.time_go, -->polazno vreme
+objekt.time_back, -->vrijeme vracanja
+objekt.country,	  -->zemlja odlaska
+objekt.town	-->grad u koji se odlazi
+
+---------------------------------------------
+
+za prekovremeno
+
+objekt.type=overwork,
+objekt.typeValue, -->broj prekovremenih sati
+objekt.idWorker,
+objekt.reason -->razlog prekovremenih sata
+
+---------------------------------------------
+
+dnevnica
+objekt.type=allowance,
+objekt.typeValue -->koliko iznosi dnevnica
+objekt.idWorker   -->radnik koji trazi dnevnicu
+objekt.reason    -->razlog za dnevnicu
+
+----------------------------------------------
+
+refundacija
+objekt.type=refund
+objekt.typeValue -->koliko iznosi refundacija
+objekt.idWorker  
+objekt.picture	-->preko multipart/form-data
+//moze slika ili dokument
+objekt.reason  -->razlog za refundaciju
+
+---------------------------------------------
 
 
 

@@ -158,6 +158,12 @@
             // var_dump($updArray);
             // die();
         }
+
+        public function nonStaticUpdate($data)
+        {
+            $data['id']=$this->id;
+            return static::update($data);
+        }
     }
 
 ?>

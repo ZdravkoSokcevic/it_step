@@ -4,6 +4,7 @@
 session_start();
 require_once '../models/manager.php';
 require_once '../models/request.php';
+require_once '../helpers/date.php';
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -60,8 +61,7 @@ switch($table)
             };break;
             case 'chpsswd':
             {
-                die();
-                header("Location: ");
+                header("Location: worker/auth/chpasswd.php");
             };break;
             case 'getMyWorkers':
             {
@@ -99,7 +99,7 @@ switch($table)
                 }
             }
 
-            
+
         }
     };break;
     //---------------------------------------------------------------------
@@ -116,6 +116,8 @@ switch($table)
                     echo json_encode(true);
                 else echo json_encode(false);
             };break;
+
+
             case 'insert':
             {
                 header("Location: request/insert.php");
@@ -124,8 +126,28 @@ switch($table)
             {
                 header("Location:request/updDecision.php");
             };break;
+
+
+            case 'getForMe':
+             {
+                if(Work::isManager($_GET['id']))
+                {
+                    $reqData=Manager::getRequests($_GET['id']);
+                    if(is_array($reqData))
+                    {
+                        http_response_code(200);
+                        echo json_encode($reqData);                        
+                    }else{
+                        http_response_code(200);
+                        echo json_encode("Nema niti jedan request");
+                    }
+                }else{
+                    http_response_code(503);
+                    echo json_encode("Niste manager");
+                }
+            };break;
         }
-    }
+    };break;
     //---------------------------------------------------------------------
     //---------------------------------------------------------------------
     case 'calendar':
