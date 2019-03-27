@@ -1,0 +1,11 @@
+export const GET_LOGGED = 'GET_LOGGED';
+export const SET_LOGGED = 'SET_LOGGED';
+
+export const GET_ALL_WORKERS = 'GET_ALL_WORKERS';
+export const SET_ALL_WORKERS = 'SET_ALL_WORKERS';
+
+export const GET_ONE_WORKER = 'GET_ONE_WORKER';
+export const SET_ONE_WORKER = 'SET_ONE_WORKER';
+
+export const GET_ALL_MANAGERS = 'GET_ALL_MANAGERS';
+export const SET_ALL_MANAGERS = 'SET_ALL_MANAGERS';
